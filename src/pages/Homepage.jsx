@@ -39,7 +39,7 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[60%] h-full bg-[#ecfdf5] flex flex-col pb-8 p-3 md:p-10 items-center text-black/50 overflow-y-auto">
+        <div className="w-full md:w-[60%] md:h-full bg-[#ecfdf5] flex flex-col pb-8 p-3 md:p-10 items-center text-black/50 overflow-y-auto">
           <div className="flex gap-5 h-fit my-5 md:hidden">
             <button className="uppercase px-5 py-2 md:px-12 md:py-3 font-bold bg-[#10b981] text-white border border-white hover:bg-[#10b981]/70 rounded-md mt-3">
               Register
@@ -49,8 +49,13 @@ const Homepage = () => {
             </button>
           </div>
 
-          <div className="flex flex-col items-center gap-3 mt-5 md:mt-0">
-            <div className="w-[300px] h-[120px] border-4 border-[#10b981]"></div>
+          <div className="flex flex-col items-center mt-5 md:mt-0">
+            <img
+              alt=""
+              src="/images/hero1.png"
+              className="w-[200px] h-[150px] md:w-[300px] md:h-[250px] object-cover"
+            />
+            {/* <div className="w-[300px] h-[120px] border-4 border-[#10b981]"></div> */}
             <p className="font-medium text-[1.35rem] text-center">
               Easy Registration flow..
             </p>
