@@ -74,7 +74,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[60%] h-full bg-[#ecfdf5] flex flex-col justify-center pb-8 p-3 md:py-10 md:px-[100px] items-center text-black/70 overflow-y-auto">
+        <div className="w-full md:w-[60%] h-full bg-[#ecfdf5] flex flex-col md:justify-center py-8 px-3 md:py-10 md:px-[100px] items-center text-black/70 overflow-y-auto">
           <div className="w-full flex flex-col gap-0 md:gap-4 h-fit my-5">
             <h1 className="text-[1.75rem] text-center font-bold uppercase">
               Create account
