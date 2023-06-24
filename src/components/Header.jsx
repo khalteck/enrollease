@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../contexts/AppContext";
 
 const Header = () => {
-  const navigate = useNavigate();
+  const { logout } = useAppContext();
+
+  // const navigate = useNavigate();
 
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
@@ -10,13 +13,13 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full h-[80px] md:h-[130px] border-t-4 border-[#e27631] bg-[#f9f8f9] flex md:gap-20 lg:gap-[150px] justify-between px-3 md:px-[100px] items-center fixed top-0 left-0 shadow-md md:shadow-none">
+    <header className="w-full h-[80px] bg-[#ecfdf5] border-b-2 border-[#10b981] flex md:gap-20 lg:gap-[150px] justify-between px-3 md:px-[100px] items-center fixed top-0 left-0 shadow-md md:shadow-none">
       <Link to="/">
         <div className="flex gap-2 items-center">
           <img
             alt=""
-            src="/images/icons8-card-50.png"
-            className="w-8 h-8 md:w-10 md:h-10"
+            src="/images/logo.png"
+            className="w-10 h-10 md:w-[50px] md:h-[50px]"
           />
           <h1 className="text-[.85rem] md:text-[1.75rem] font-medium md:font-bold">
             EnrollEase
@@ -31,14 +34,14 @@ const Header = () => {
       />
       <ul className="gap-5 items-center hidden md:flex">
         <Link to="/about">
-          <li className="hover:text-[#e27631] cursor-pointer">About</li>
+          <li className="hover:text-[#10b981] cursor-pointer">About</li>
         </Link>
         <li>
           <button
-            onClick={() => navigate("/")}
-            className="px-5 py-2 bg-[#e27631] uppercase text-[.85rem] text-white font-medium hover:bg-[#e27631]/70"
+            onClick={logout}
+            className="px-5 py-2 bg-[#10b981] uppercase text-[.85rem] text-white font-medium hover:bg-[#10b981]/70"
           >
-            Apply for id
+            logout
           </button>
         </li>
       </ul>
@@ -54,7 +57,7 @@ const Header = () => {
               handleClick();
             }}
           />
-          <ul className="slide float-right w-full h-[250px] bg-[#e27631] py-10 text-white gap-3 items-center md:hidden flex flex-col">
+          <ul className="slide float-right w-full h-[250px] bg-[#10b981] py-10 text-white gap-3 items-center md:hidden flex flex-col">
             <Link
               onClick={() => {
                 handleClick();
