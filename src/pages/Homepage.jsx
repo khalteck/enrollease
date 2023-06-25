@@ -18,7 +18,7 @@ const Homepage = () => {
       {/* <Header /> */}
       {loader && <Loader />}
 
-      <main className="w-full h-screen overflow-y-auto flex md:flex-row flex-col">
+      <main className="w-full h-screen overflow-y-auto bg-[#ecfdf5] flex md:flex-row flex-col">
         <div className="w-full md:w-[40%] h-[300px] md:h-full bg-hero bg-cover">
           <div className="w-full h-full bg-[#10b981]/70 p-3 md:p-10 text-white flex items-center">
             <div className="flex gap-2 items-center absolute top-3 left-3 md:top-10 md:left-10">

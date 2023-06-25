@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "price": 2500,
+    "name": "Computer Science",
+    "description": "Study computer systems and programming languages to develop software applications and solve complex problems.",
+    "prerequisites": "Basic knowledge of programming and mathematics is recommended."
+  },
+  {
+    "id": 2,
+    "price": 2500,
+    "name": "Hospitality Management & Technology",
+    "description": "Learn the management principles and explore the technological advancements in the hospitality industry to provide exceptional guest experiences.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 3,
+    "price": 2500,
+    "name": "Accounting",
+    "description": "Gain a strong foundation in financial reporting, analysis, and taxation to effectively manage the financial aspects of businesses and organizations.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 4,
+    "price": 2500,
+    "name": "Office Technology Management",
+    "description": "Develop administrative and technology skills to efficiently manage office operations and implement digital tools for enhanced productivity.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 5,
+    "price": 2500,
+    "name": "Mass Communication",
+    "description": "Explore various forms of media, including journalism, advertising, and public relations, to effectively communicate messages to diverse audiences.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 6,
+    "price": 2500,
+    "name": "Marketing",
+    "description": "Learn marketing strategies, consumer behavior, and market research techniques to create impactful campaigns and drive business growth.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 7,
+    "price": 2500,
+    "name": "Civil Engineering",
+    "description": "Study the design and construction of infrastructure projects such as bridges, buildings, and transportation systems to shape the world we live in.",
+    "prerequisites": "Strong foundation in mathematics and physics is recommended."
+  },
+  {
+    "id": 8,
+    "price": 2500,
+    "name": "Mechanical Engineering",
+    "description": "Explore the principles of mechanical systems, including thermodynamics and materials science, to design and develop innovative machines and devices.",
+    "prerequisites": "Strong foundation in mathematics and physics is recommended."
+  },
+  {
+    "id": 9,
+    "price": 2500,
+    "name": "Electrical Engineering",
+    "description": "Learn about electrical circuits, power systems, and electronics to design and develop technologies that power our modern world.",
+    "prerequisites": "Strong foundation in mathematics and physics is recommended."
+  },
+  {
+    "id": 10,
+    "price": 2500,
+    "name": "Mathematics",
+    "description": "Study mathematical concepts and problem-solving techniques to analyze patterns, make predictions, and provide solutions in various fields.",
+    "prerequisites": "No prerequisites required. Open to all interested learners."
+  },
+  {
+    "id": 11,
+    "price": 2500,
+    "name": "Statistics",
+    "description": "Explore statistical methods and data analysis techniques to make informed decisions and draw meaningful insights from data.",
+    "prerequisites": "Basic knowledge of mathematics is recommended."
+  },
+  {
+    "id": 12,
+    "price": 2500,
+    "name": "Computer Engineering",
+    "description": "Integrate computer science and electrical engineering principles to design and develop computer hardware and software systems.",
+    "prerequisites": "Strong foundation in mathematics and physics is recommended."
+  }
+]

@@ -13,8 +13,8 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full h-[80px] bg-[#ecfdf5] border-b-2 border-[#10b981] flex md:gap-20 lg:gap-[150px] justify-between px-3 md:px-[100px] items-center fixed top-0 left-0 shadow-md md:shadow-none">
-      <Link to="/">
+    <header className="w-full h-[60px] md:h-[80px] bg-[#ecfdf5] border-b-2 border-[#10b981] flex md:gap-20 lg:gap-[150px] justify-between px-3 md:px-[200px] items-center fixed top-0 left-0 shadow-md md:shadow-none z-10">
+      <Link to="/dashboard">
         <div className="flex gap-2 items-center">
           <img
             alt=""
@@ -33,9 +33,9 @@ const Header = () => {
         className="w-7 h-7 block md:hidden"
       />
       <ul className="gap-5 items-center hidden md:flex">
-        <Link to="/about">
+        {/* <Link to="/about">
           <li className="hover:text-[#10b981] cursor-pointer">About</li>
-        </Link>
+        </Link> */}
         <li>
           <button
             onClick={logout}
@@ -52,28 +52,30 @@ const Header = () => {
           <img
             className="w-[30px] h-[30px] cursor-pointer mr-[25px] absolute top-4 right-0 text-white"
             alt=""
-            src="/images/icons8-cancel-50.png"
+            src="/images/icons8-close-50.png"
             onClick={() => {
               handleClick();
             }}
           />
-          <ul className="slide float-right w-full h-[250px] bg-[#10b981] py-10 text-white gap-3 items-center md:hidden flex flex-col">
-            <Link
+          <ul className="slide float-right w-full h-[150px] bg-[#10b981] py-10 text-white gap-3 items-center md:hidden flex flex-col">
+            {/* <Link
               onClick={() => {
                 handleClick();
               }}
               to="/about"
             >
               <li className="py-2 border-b border-white/50">About</li>
-            </Link>
-            <Link
+            </Link> */}
+
+            <li
               onClick={() => {
                 handleClick();
+                logout();
               }}
-              to="/"
+              className="py-2 uppercase"
             >
-              <li className="py-2 border-b border-white/50">Apply for id</li>
-            </Link>
+              Log Out
+            </li>
           </ul>
         </div>
       )}

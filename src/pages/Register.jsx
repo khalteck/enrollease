@@ -47,10 +47,10 @@ const Register = () => {
 
       {loader && <Loader />}
 
-      <main className="w-full h-screen overflow-y-auto bg-[#ecfdf5] flex md:flex-row flex-col">
+      <main className="w-full h-screen overflow-y-auto flex md:flex-row flex-col">
         <div className="w-full md:w-[40%] h-[300px] md:h-full bg-hero bg-cover">
-          <div className="w-full h-full bg-[#10b981]/70 p-3 md:p-10 text-white flex items-center">
-            <div className="flex gap-2 items-center absolute top-3 left-3 md:top-10 md:left-10">
+          <div className="w-full md:h-full h-[220px] bg-[#10b981]/70 p-3 md:p-10 text-white flex items-center">
+            <div className="flex gap-2 items-center absolute top-3 left-3 md:top-10 md:left-10 bg-[#10b981]/50 md:bg-transparent rounded-lg px-3 md:px-0">
               <img
                 alt=""
                 src="/images/logo.png"
@@ -74,9 +74,9 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[60%] h-full bg-[#ecfdf5] flex flex-col md:justify-center py-8 px-3 md:py-10 md:px-[100px] items-center text-black/70 overflow-y-auto">
+        <div className="w-full md:w-[60%] h-full bg-[#ecfdf5] flex flex-col md:justify-center py-8 px-3 md:py-10 md:px-[100px] items-center text-black/70 md:overflow-y-auto">
           <div className="w-full flex flex-col gap-0 md:gap-4 h-fit my-5">
-            <h1 className="text-[1.75rem] text-center font-bold uppercase">
+            <h1 className="text-[1.5rem] mb-4 md:text-[1.75rem] text-center font-bold uppercase">
               Create account
             </h1>
             <form
@@ -159,14 +159,18 @@ const Register = () => {
                   {showPassword ? "Hide" : "Show"}
                 </p>
               </div>
+              {validateErr && (
+                <p className="text-red-500 p-2 bg-red-500/20 border border-red-500 w-full rounded-lg">
+                  {validateErr}
+                </p>
+              )}
+
               <p className="">
                 Already registered?{" "}
                 <Link to="/login" className="text-[#10b981] hover:underline">
                   Sign in
                 </Link>
               </p>
-
-              {validateErr && <p className="text-red-500">{validateErr}</p>}
 
               <button
                 onClick={(e) => handleSubmit(e)}
