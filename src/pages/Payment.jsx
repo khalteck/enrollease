@@ -29,6 +29,12 @@ const Payment = () => {
     publicKey: "pk_test_c9e136db34c0d202081e2efdcb7d5c4d991d3bd6",
   };
 
+  // function generateTimestamp() {
+  //   const currentDateTime = new Date();
+  //   const timestamp = currentDateTime.toISOString();
+  //   return timestamp;
+  // }
+
   //to init paystack
   const initializePayment = usePaystackPayment(paystackConfig);
 

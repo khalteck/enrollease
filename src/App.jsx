@@ -23,18 +23,15 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/dashboard"
-          element={userData?.role === "user" ? <Dashboard /> : <Login />}
-        />
-        <Route
-          path="/payment"
-          element={userData?.role === "user" ? <Payment /> : <Login />}
-        />
-        <Route
-          path="/admin-dashboard"
-          element={userData?.role === "admin" ? <AdminDashboard /> : <Login />}
-        />
+        {userData?.role === "user" && (
+          <>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/payment" element={<Payment />} />
+          </>
+        )}
+        {userData?.role === "admin" && (
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        )}
       </Routes>
     </Suspense>
   );

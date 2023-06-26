@@ -36,23 +36,7 @@ const Dashboard = () => {
     navigate("/payment");
   }
 
-  //=====================================to handle pdf download
-  // const convertToImageAndDownload = () => {
-  //   const element = document.getElementById("card");
-
-  //   html2canvas(element, { useCORS: true }).then((canvas) => {
-  //     // Convert canvas to image data URL
-  //     const dataURL = canvas.toDataURL("image/png");
-
-  //     // Create a link element
-  //     const link = document.createElement("a");
-  //     link.href = dataURL;
-  //     link.download = "courses.png"; // Set the download filename
-
-  //     // Trigger the download
-  //     link.click();
-  //   });
-  // };
+  console.log("userData", userData);
 
   return (
     <>
@@ -122,21 +106,37 @@ const Dashboard = () => {
                 Enroll
               </button>
             )}
-
-            {/* {userData?.paid && (
-              <button
-                onClick={convertToImageAndDownload}
-                className="px-8 py-2 bg-[#10b981] uppercase text-[.85rem] text-white font-medium hover:bg-[#10b981]/70 rounded-md"
-              >
-                Download
-              </button>
-            )} */}
           </section>
         )}
+
+        <section className="px-3 md:px-[200px] ">
+          <h1 className="font-medium text-[1.25rem] md:text-[1.5rem] text-center mt-8 uppercase">
+            Payment
+          </h1>
+
+          <div
+            id="card"
+            className="w-full my-7 py-5 border border-[#10b981] rounded-lg p-3"
+          >
+            <p>
+              Total Paid:{" "}
+              <span className="text-[1.5rem] font-bold">
+                {userData?.amount_paid} Naira
+              </span>
+            </p>
+          </div>
+
+          {/* <button
+            onClick={linkToPayment}
+            className="px-8 py-2 bg-[#10b981] uppercase text-[.85rem] text-white font-medium hover:bg-[#10b981]/70 rounded-md"
+          >
+            Download PDF
+          </button> */}
+        </section>
       </main>
 
       {openDetails && (
-        <div className="w-full h-screen fixed top-0 left-0 bg-[#10b981]/80 flex justify-center items-center z-10 p-3">
+        <div className="w-full h-screen fixed top-0 left-0 bg-[#10b981]/70 flex justify-center items-center z-10 p-3">
           <div className="w-[500px] min-h-[200px] bg-white rounded-lg p-4 relative scale">
             <img
               className="w-[20px] h-[20px] cursor-pointer absolute top-2 right-2 text-black/80"
@@ -151,8 +151,14 @@ const Dashboard = () => {
               {currentCourse?.name}
             </h1>
 
-            <p className="mt-7 tracking-wider text-black/80 text-[1rem] text-center">
+            <p className="mt-7 tracking-wider text-black/80 text-[1rem]">
+              <span className="font-bold"> Desription:</span>{" "}
               {currentCourse?.description}
+            </p>
+
+            <p className="mt-7 tracking-wider text-black/80 text-[1rem]">
+              <span className="font-bold"> Prerequisites:</span>{" "}
+              {currentCourse?.prerequisites}
             </p>
 
             <p className="text-black/60 text-[.75rem] mt-8">

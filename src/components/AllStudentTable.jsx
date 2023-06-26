@@ -5,9 +5,7 @@ import { useAppContext } from "../contexts/AppContext";
 export default function AllSTudentTable({ openMod, setSelectedUser }) {
   const { allUsers } = useAppContext();
 
-  const filteredUsers = allUsers?.filter(
-    (item) => item?.first_name !== "Admin"
-  );
+  const filteredUsers = allUsers?.filter((item) => item?.role !== "admin");
 
   const handleRowClick = (item) => {
     setSelectedUser(item);
