@@ -11,9 +11,10 @@ const Login = lazy(() => import("./pages/Login"));
 const About = lazy(() => import("./pages/About"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Payment = lazy(() => import("./pages/Payment"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 
 function App() {
-  const { user } = useAppContext();
+  const { userData } = useAppContext();
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
@@ -22,8 +23,18 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={user ? <Dashboard /> : <Login />} />
-        <Route path="/payment" element={user ? <Payment /> : <Login />} />
+        <Route
+          path="/dashboard"
+          element={userData?.role === "user" ? <Dashboard /> : <Login />}
+        />
+        <Route
+          path="/payment"
+          element={userData?.role === "user" ? <Payment /> : <Login />}
+        />
+        <Route
+          path="/admin-dashboard"
+          element={userData?.role === "admin" ? <AdminDashboard /> : <Login />}
+        />
       </Routes>
     </Suspense>
   );

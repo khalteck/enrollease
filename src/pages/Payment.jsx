@@ -119,6 +119,8 @@ const Payment = () => {
           <div className="w-[500px] min-h-[200px] bg-white rounded-lg p-4 relative scale text-center">
             <p className="mt-7 tracking-wider text-black/80 text-[1.1rem] text-center">
               Payment successful!
+              <br />
+              You have successfully enrolled for the selected courses!
             </p>
 
             <p className="w-fit text-black/60 text-[.75rem] mt-8 p-3 border-2 border-[#10b981]/80 rounded-md mx-auto">

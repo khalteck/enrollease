@@ -5,7 +5,14 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -54,13 +61,16 @@ const AppContextProvider = ({ children }) => {
         formData?.password
       );
 
-      const judgesRef = doc(db, "users", user.uid);
-      await setDoc(judgesRef, { ...formData });
+      const userRef = doc(db, "users", user.uid);
+      await setDoc(userRef, { ...formData });
 
       // Set display name for the user
       await updateProfile(user, {
         displayName: `${formData?.first_name} ${formData?.last_name}`,
       });
+
+      // Set custom claims with role "user"
+      // await setCustomUserClaims(user.uid, { role: "user" });
 
       if (user?.uid) {
         navigate("/login");
@@ -74,6 +84,7 @@ const AppContextProvider = ({ children }) => {
             email: "",
             password: "",
             paid: false,
+            role: "user",
           });
         }, 3000);
       }
@@ -112,7 +123,6 @@ const AppContextProvider = ({ children }) => {
       );
 
       if (user?.uid) {
-        navigate("/dashboard");
         setLoginSuccess(true);
         setTimeout(() => {
           setLoginSuccess(false);
@@ -121,6 +131,11 @@ const AppContextProvider = ({ children }) => {
             password: "",
           });
         }, 3000);
+        if (user?.role === "user") {
+          navigate("/dashboard");
+        } else {
+          navigate("/admin-dashboard");
+        }
       }
     } catch (error) {
       console.error("Error:", error);
@@ -170,7 +185,9 @@ const AppContextProvider = ({ children }) => {
     setValidateErr("");
   }, [currentPage]);
 
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(
+    localStorage.getItem("userData") || {}
+  );
 
   useEffect(() => {
     if (user?.uid) {
@@ -215,6 +232,28 @@ const AppContextProvider = ({ children }) => {
     }
   }
 
+  const [allUsers, setAllUsers] = useState({});
+
+  useEffect(() => {
+    if (user?.uid) {
+      async function getUserData() {
+        try {
+          const collectionRef = collection(db, "users");
+          const querySnapshot = await getDocs(collectionRef);
+
+          const allUsersData = querySnapshot.docs.map((doc) => doc.data());
+
+          setAllUsers(allUsersData);
+          console.log("allUsers", allUsersData);
+        } catch (error) {
+          console.error("Error fetching all users", error);
+        }
+      }
+
+      getUserData();
+    }
+  }, [user]);
+
   return (
     <AppContext.Provider
       value={{
@@ -237,6 +276,7 @@ const AppContextProvider = ({ children }) => {
         selectedCourses,
         userData,
         setPaid,
+        allUsers,
       }}
     >
       {children}
