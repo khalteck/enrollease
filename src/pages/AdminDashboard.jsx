@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     allUsers,
   } = useAppContext();
 
-  console.log("allUsers", allUsers);
+  // console.log("allUsers", allUsers);
 
   const [openDetails, setOpenDetails] = useState(false);
 
