@@ -109,30 +109,32 @@ const Dashboard = () => {
           </section>
         )}
 
-        <section className="px-3 md:px-[200px] ">
-          <h1 className="font-medium text-[1.25rem] md:text-[1.5rem] text-center mt-8 uppercase">
-            Payment
-          </h1>
+        {userData?.paid && (
+          <section className="px-3 md:px-[200px] ">
+            <h1 className="font-medium text-[1.25rem] md:text-[1.5rem] text-center mt-8 uppercase">
+              Payment
+            </h1>
 
-          <div
-            id="card"
-            className="w-full my-7 py-5 border border-[#10b981] rounded-lg p-3"
-          >
-            <p>
-              Total Paid:{" "}
-              <span className="text-[1.5rem] font-bold">
-                {userData?.amount_paid} Naira
-              </span>
-            </p>
-          </div>
+            <div
+              id="card"
+              className="w-full my-7 py-5 border border-[#10b981] rounded-lg p-3"
+            >
+              <p>
+                Total Paid:{" "}
+                <span className="text-[1.5rem] font-bold">
+                  {userData?.amount_paid} Naira
+                </span>
+              </p>
+            </div>
 
-          {/* <button
+            {/* <button
             onClick={linkToPayment}
             className="px-8 py-2 bg-[#10b981] uppercase text-[.85rem] text-white font-medium hover:bg-[#10b981]/70 rounded-md"
           >
             Download PDF
           </button> */}
-        </section>
+          </section>
+        )}
       </main>
 
       {openDetails && (
